@@ -1,0 +1,38 @@
+.countryCard {
+    text-decoration: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.countryCardFlagContainer {
+    height: 150px;
+    position: relative;
+}
+
+.countryCardFlagImg {
+    width: 100%;
+    position: relative;
+    object-fit: fill;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.countryCardInfoContainer {
+    padding: 24px 16px;
+}
+
+.countryCardInfo {
+    font-weight: 200;
+    padding-bottom: 8px;
+    font-size: 14px;
+}
+
+.countryCardInfo span {
+    font-weight: 600;
+}
+
+.countryCardName {
+    font-weight: 800;
+    padding-bottom: 16px;
+    font-size: 16px;
+}

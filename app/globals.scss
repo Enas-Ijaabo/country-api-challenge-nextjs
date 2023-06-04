@@ -1,0 +1,37 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+$dark-mode-elements: hsl(209, 23%, 22%);
+$very-dark-blue-dark-mode-background: hsl(207, 26%, 17%);
+$very-dark-blue-light-mode-text: hsl(200, 15%, 8%);
+$dark-gray-light-mode-input: hsl(0, 0%, 52%);
+$very-light-gray-light-mode-background: hsl(0, 0%, 98%);
+$white-dark-mode-text-light-mode-elements: hsl(0, 0%, 100%);
+
+.dark-mode-element {
+    background-color: $dark-mode-elements;
+    color: $white-dark-mode-text-light-mode-elements;
+}
+
+.light-mode-element {
+    background-color: $white-dark-mode-text-light-mode-elements;
+    color: $very-dark-blue-light-mode-text;
+}
+
+.light-mode-background {
+    background-color: $very-light-gray-light-mode-background;
+    color: $very-dark-blue-light-mode-text;
+}
+
+.dark-mode-background {
+    background-color: $very-dark-blue-dark-mode-background;
+    color: $white-dark-mode-text-light-mode-elements;
+}
+
+.dark-mode-element::placeholder {
+    color: $white-dark-mode-text-light-mode-elements;
+    ;
+}

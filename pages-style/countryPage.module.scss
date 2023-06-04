@@ -1,0 +1,94 @@
+.countryPageBackButtonContainer {
+    margin-bottom: 64px;
+
+    @media (max-width: 768px) {
+        margin-bottom: 32px;
+    }
+}
+
+.countryPageContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px 15%;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 32px 15%;
+    }
+}
+
+.countryPageFlagContainer {
+    height: 22vw;
+    position: relative;
+
+    @media (max-width: 768px) {
+        height: 300px;
+    }
+
+    @media (max-width: 480px) {
+        height: 250px;
+    }
+}
+
+.countryPageFlagImg {
+    width: 100%;
+    position: relative;
+    object-fit: fill;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.countryPageInfo {
+    font-weight: 200;
+    padding-bottom: 16px;
+    font-size: 14px;
+}
+
+.countryPageInfo span {
+    font-weight: 600;
+}
+
+.countryPageName {
+    font-weight: 800;
+    margin-bottom: 24px;
+    font-size: 32px;
+}
+
+.countryPageInfoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0 15%;
+
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 16px 15%;
+    }
+
+}
+
+.countryBorders {
+    margin-top: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.countryBorders span {
+    margin-bottom: 5px;
+}
+
+.countryPageBorderLink {
+    text-decoration: none;
+    margin-left: 12px;
+    padding: 5px 12px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.noBorderCountries {
+    display: inline-block;
+    margin-left: 8px;
+    margin-bottom: 5px;
+}

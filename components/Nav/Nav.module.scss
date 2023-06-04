@@ -1,0 +1,26 @@
+.navbar {
+    width: 100vw;
+    height: 64px;
+    border-bottom: 1px solid ghsl(0, 0%, 52%);
+    margin: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.navbarWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbarLink {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+
+
+    @media (max-width: 768px) {
+        font-size: 18px;
+    }
+}

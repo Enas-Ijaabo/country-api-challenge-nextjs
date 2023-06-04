@@ -1,0 +1,17 @@
+.pageContainer {
+    width: 80vw;
+    margin: auto;
+    max-width: 1440px;
+
+    @media (max-width: 768px) {
+        width: 85vw;
+    }
+}
+
+.main {
+    padding: 56px 0;
+
+    @media (max-width: 768px) {
+        padding: 32px 0;
+    }
+}
