@@ -3,11 +3,42 @@ import Layout from '@/components/Layout/Layout';
 import Image from 'next/image';
 import styles from '@/pages-style/countryPage.module.scss';
 import BackButton from '@/components/BackButton/BackButton';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from '@/context/theme-context';
+import { useRouter } from 'next/router';
 
-const CountryPage = ({ countryData }) => {
+const CountryPage = () => {
   const { theme } = useContext(ThemeContext);
+  const [countryData, setCountryData] = useState([]);
+  const router = useRouter();
+  const { countryName } = router.query;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let response = await fetch(
+          `https://restcountries.com/v3.1/name/${countryName}?fields=name,flags,population,region,capital,languages,subregion,currencies,tld,borders`
+        );
+
+        if (!response.ok) {
+          response = await fetch(
+            `https://restcountries.com/v3.1/alpha/${countryName}?fields=name,flags,population,region,capital,languages,subregion,currencies,tld,borders`
+          );
+
+          const countryData = await response.json();
+          setCountryData([countryData]);
+        } else {
+          const countryData = await response.json();
+          setCountryData(countryData);
+        }
+
+      } catch (error) {
+        console.error('Error fetching country data:', error);
+      }
+    };
+
+    fetchData();
+  }, [countryName]);
 
   const capital = countryData[0]?.capital?.[0];
   const flagsPng = countryData[0]?.flags?.png;
@@ -20,6 +51,11 @@ const CountryPage = ({ countryData }) => {
   const currencies = countryData[0]?.currencies;
   const languages = countryData[0]?.languages;
   const borders = countryData[0]?.borders;
+
+
+  if (!countryData || (Array.isArray(countryData) && countryData.length === 0)) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Layout>
@@ -74,26 +110,5 @@ const CountryPage = ({ countryData }) => {
     </Layout>
   );
 };
-
-export async function getServerSideProps({ params }) {
-  const { countryName } = params;
-  let countryData;
-
-  let response = await fetch(`https://restcountries.com/v3.1/name/${countryName}?fields=name,flags,population,region,capital,languages,subregion,currencies,tld,borders`);
-  if (!response.ok) {
-    response = await fetch(`https://restcountries.com/v3.1/alpha/${countryName}?fields=name,flags,population,region,capital,languages,subregion,currencies,tld,borders`);
-    countryData = await response.json()
-    countryData = [countryData]
-  } else {
-    countryData = await response.json()
-  }
-
-
-  return {
-    props: {
-      countryData,
-    },
-  };
-}
 
 export default CountryPage;
