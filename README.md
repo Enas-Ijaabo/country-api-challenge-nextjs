@@ -1,11 +1,8 @@
-# country-api-challenge-nextjs
-
 # Live Site URL
 
 https://country-api-challenge-nextjs.vercel.app/
 
-# Frontend Mentor - REST Countries API with color theme switcher
-
+# country-api-challenge-nextjs
 Using React, the challenge is to integrate with the [REST Countries API](https://restcountries.eu) to pull country data and display it like in the designs.
 
 The users should be able to:
